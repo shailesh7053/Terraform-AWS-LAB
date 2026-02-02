@@ -8,7 +8,7 @@ resource "aws_instance" "windows" {
     aws_security_group.rdp_sg.id
   ]
 
-  key_name = aws_key_pair.windows.key_name
+  key_name = "windows-key-new"
 
   associate_public_ip_address = true
 
