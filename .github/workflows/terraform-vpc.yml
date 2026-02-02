@@ -5,11 +5,19 @@ on:
     branches: [ main ]
     paths:
       - "AWS-VPC/**"
+
   workflow_dispatch:
-   
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
+
+    # 🔒 THIS ENABLES MANUAL APPROVAL
+    environment: terraform-prod
+
+    permissions:
+      id-token: write
+      contents: read
 
     defaults:
       run:
@@ -22,11 +30,10 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::<ACCOUNT_ID>:role/GitHubActionsTerraformRole
           aws-region: ap-south-1
 
       - name: Terraform Init
@@ -36,4 +43,8 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan
+        run: terraform plan -out=tfplan
+
+      # 🚀 APPLY (auto-approve, but approval comes from GitHub UI)
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
