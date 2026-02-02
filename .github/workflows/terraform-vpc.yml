@@ -5,7 +5,8 @@ on:
     branches: [ main ]
     paths:
       - "AWS-VPC/**"
-
+  workflow_dispatch:
+   
 jobs:
   terraform:
     runs-on: ubuntu-latest
