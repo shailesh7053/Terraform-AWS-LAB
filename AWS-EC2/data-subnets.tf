@@ -4,9 +4,3 @@ data "aws_subnets" "public" {
     values = [data.terraform_remote_state.vpc.outputs.vpc_id]
   }
 }
-
-  filter {
-    name   = "tag:Name"
-    values = ["public-subnet-1"]
-  }
-}
