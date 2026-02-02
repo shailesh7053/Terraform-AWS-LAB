@@ -1,12 +1,8 @@
 resource "aws_security_group" "rdp_sg" {
-  name        = "windows-rdp-sg"
-  description = "Allow RDP access"
+  name   = "windows-rdp-sg"
   vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
 
-
-
   ingress {
-    description = "RDP from my IP"
     from_port   = 3389
     to_port     = 3389
     protocol    = "tcp"
@@ -19,6 +15,8 @@ resource "aws_security_group" "rdp_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
 
   tags = {
     Name = "windows-rdp-sg"
