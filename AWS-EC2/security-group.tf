@@ -17,8 +17,7 @@ resource "aws_security_group" "rdp_sg" {
   }
 }
 
-
-  tags = {
+tags = {
     Name = "windows-rdp-sg"
   }
 }
