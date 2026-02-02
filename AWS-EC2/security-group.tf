@@ -1,7 +1,8 @@
 resource "aws_security_group" "rdp_sg" {
   name        = "windows-rdp-sg"
   description = "Allow RDP access"
-  vpc_id = data.aws_vpc.existing.id
+  vpc_id = data.terraform_remote_state.vpc.outputs.vpc_id
+
 
 
   ingress {
