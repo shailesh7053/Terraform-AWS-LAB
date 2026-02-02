@@ -4,6 +4,6 @@ data "terraform_remote_state" "vpc" {
   config = {
     bucket = "terraform-state-shailesh-prod"
     key    = "vpc/terraform.tfstate"
-    region = "ap-south-1"
+    region = "us-east-1"
   }
 }
