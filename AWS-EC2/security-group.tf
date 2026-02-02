@@ -16,8 +16,3 @@ resource "aws_security_group" "rdp_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-tags = {
-    Name = "windows-rdp-sg"
-  }
-}
