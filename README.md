@@ -1,5 +1,3 @@
-Got you — you want it to sound **personal, like you actually built it** (which you did). Here’s a polished version with that tone 👇
-
 ---
 
 # 🚀 Terraform AWS Lab – VPC + EC2 Deployment
