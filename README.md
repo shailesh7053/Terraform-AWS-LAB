@@ -14,6 +14,8 @@ Terraform-AWS-LAB/
 │── .github/workflows/  # CI/CD (Terraform automation)
 │── README.md
 
+## 🌐 Architecture Diagram
+
 ```mermaid
 flowchart TD
 
@@ -34,7 +36,6 @@ flowchart TD
 
     EC2Public --> SG[Security Group]
     EC2Private --> SG
-
 ----
 
 ---
