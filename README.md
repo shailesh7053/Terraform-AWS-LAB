@@ -95,8 +95,3 @@ flowchart TD
 * Used Terraform data sources and modular approach for scalability
 * Built a production-like infrastructure combining networking and compute
 
----
-
-
-* Make this even sharper for **ATS resume (2–3 bullet killer points)**
-* Or prepare **interview Q&A based on this project (very useful for your role target)**
